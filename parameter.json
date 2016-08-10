@@ -1,0 +1,45 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "value": "samisra"
+    },
+    "adminPassword": {
+      "value": "V!rtPaloalto1"
+    },
+    "newStorageAccount": {
+      "value": "smwest6storage44"
+    },
+    "dnsNameForPublicIP": {
+      "value": "panw-trail-uidef-44"
+    },
+    "vmName": {
+      "value": "panwtrailuidef-44"
+    },
+    "vmSize": {
+      "value": "Standard_D3"
+    },
+    "srcIPInboundNSG": {
+      "value": "199.167.55.50/32"
+    },
+    "vnetNewOrExisting": {
+      "value": "new"
+    },
+    "PublicIPNewOrExistingOrNone": {
+      "value": "new"
+    },
+    "BSstorageAccountName": {
+      "value": "new"
+    },
+    "BSstorageAccountNewOrExisting": {
+      "value": "existing"
+    },
+    "BSstorageAccountExistingRG": {
+      "value": "existing"
+    },
+    "location": {
+      "value": "East US"
+    }
+  }
+}
