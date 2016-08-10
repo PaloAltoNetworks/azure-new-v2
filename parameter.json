@@ -29,6 +29,9 @@
     "BoostrapUri": {
       "value": "https://samisravhddata.blob.core.windows.net/vhds/samisra-ubuntu-20160804-135746.vhd"
     },
+    "Bootstrap": {
+      "value": "yes",
+    },
     "location": {
       "value": "East US"
     }
