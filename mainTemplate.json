@@ -150,7 +150,7 @@
         "artifactsBaseUrl": "",
         "description": "URL to acquire other VM-Series for Azure templates"
       },
-      "defaultValue": "https://github.com/PaloAltoNetworks/azure"
+      "defaultValue": "https://github.com/PaloAltoNetworks/azure-new-v2"
     },
     "PublicIPNewOrExistingOrNone": {
       "type": "string",
@@ -173,6 +173,7 @@
     },
     "publicIPAddressName": {
       "type": "string",
+      "defaultValue": "vm-servies-public-ip-name",
       "metadata": {
         "description": "Name of existing public IP resource"
       }
@@ -224,42 +225,12 @@
         "description": "Bootstrap disk yes or no"
       }
     },
-    "BSstorageAccountName": {
+    "BoostrapUri": {
       "type": "string",
       "defaultValue" : "",
       "metadata": {
-        "description": "Bootstrap disk storage account name"
+        "description": "Bootstrap disk storage account URI with container name"
       }
-    },
-    "BSstorageAccountNewOrExisting" : {
-       "type": "string",  
-       "defaultValue" : "existing",
-       "allowedValues" : [
-          "existing",
-          "none"
-       ],
-       "metadata": {
-          "Description": "Bootstrap disk Storage Account is existing or none"
-       }
-    },
-    "BSstorageAccountExistingRG": {
-       "type": "string",  
-       "defaultValue" : "",
-       "metadata": {
-          "description": "Bootstrap disk Storage's Resource Group."
-       }
-    },
-    "BSstorageAccountType": {
-      "type": "string",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_RAGRS"
-      ],
-      "metadata": {
-        "description": "Type of the storage account created"
-      },
-      "defaultValue": "Standard_LRS"
     },
     "authenticationType": {
             "type": "string",
@@ -546,17 +517,8 @@
           "sshKey": {
             "value": "[parameters('sshKey')]"
           },
-          "BSstorageAccountName": {
-            "value": "[parameters('BSstorageAccountName')]"
-          },
-          "BSstorageAccountNewOrExisting": {
-            "value": "[parameters('BSstorageAccountNewOrExisting')]"
-          },
-          "BSstorageAccountExistingRG": {
-            "value": "[parameters('BSstorageAccountExistingRG')]"
-          },
-          "BSstorageAccountType": {
-            "value": "[parameters('BSstorageAccountType')]"
+          "BoostrapUri": {
+            "value": "[parameters('BoostrapUri')]"
           }
         }
       }

@@ -8,11 +8,8 @@
     "adminPassword": {
       "value": "V!rtPaloalto1"
     },
-    "newStorageAccount": {
+    "storageAccountName": {
       "value": "smwest6storage44"
-    },
-    "dnsNameForPublicIP": {
-      "value": "panw-trail-uidef-44"
     },
     "vmName": {
       "value": "panwtrailuidef-44"
@@ -29,17 +26,11 @@
     "PublicIPNewOrExistingOrNone": {
       "value": "new"
     },
-    "BSstorageAccountName": {
-      "value": "new"
-    },
-    "BSstorageAccountNewOrExisting": {
-      "value": "existing"
-    },
-    "BSstorageAccountExistingRG": {
-      "value": "existing"
+    "BoostrapUri": {
+      "value": "https://samisravhddata.blob.core.windows.net/vhds/samisra-ubuntu-20160804-135746.vhd"
     },
     "location": {
-      "value": "East US"
+      "value": "us-east"
     }
   }
 }
