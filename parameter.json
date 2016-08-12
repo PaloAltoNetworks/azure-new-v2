@@ -6,13 +6,16 @@
       "value": "samisra"
     },
     "adminPassword": {
-      "value": "V!rtPaloalto1"
+      "value": "Hello!"
     },
     "storageAccountName": {
-      "value": "smwest6storage501"
+      "value": "smwest6storage509"
     },
     "vmName": {
-      "value": "panwtrailuidef-501"
+      "value": "panwtrailuidef-509"
+    },
+    "publicIPAddressName": {
+      "value": "pubpanwtrailuidef-509"
     },
     "vmSize": {
       "value": "Standard_D3"
@@ -27,7 +30,7 @@
       "value": "new"
     },
     "BoostrapUri": {
-      "value": "https://samisravhddata.blob.core.windows.net/vhds/samisra-ubuntu-20160804-135746.vhd"
+      "value": "https://samisravhddata.blob.core.windows.net/data/bootstrap-20.vhd.vhd"
     },
     "Bootstrap": {
       "value": "yes"
