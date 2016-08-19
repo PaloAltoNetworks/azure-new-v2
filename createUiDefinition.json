@@ -51,7 +51,7 @@
                    "type": "Standard_LRS"
                },
                "constraints": {
-                   "allowedTypes": ["Standard_LRS","Standard_GRS","Standard_RAGRS"]
+                   "allowedTypes": ["Standard_LRS","Standard_GRS","Standard_RAGRS","Premium_LRS"]
                }
             },
 	    {
@@ -196,6 +196,17 @@
             "validationMessage": "VM names must be between 8 and 24 characters long, and can contain only numbers and lowercase letters."
          }
        },
+       {
+        "name": "Email",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Customers Email-ID",
+        "toolTip": "Customers Email-ID",
+        "constraints": {
+            "required": true,
+            "regex": "^[a-z0-9]{8,24}$",
+            "validationMessage": "VM names must be between 8 and 24 characters long, and can contain only numbers and lowercase letters."
+         }
+       },
           {
             "name": "vmSize",
             "type": "Microsoft.Compute.SizeSelector",
@@ -239,6 +250,7 @@
       "UntrustPublicIP": "[steps('VMSeriesConfig').UntrustPublicIP.newOrExistingOrNone]",
       "UntrustPublicIPRGName": "[steps('VMSeriesConfig').UntrustPublicIP.resourceGroup]",
       "vmName": "[steps('VMSeriesConfig').vmName]",
+      "Email": "[steps('VMSeriesConfig').Email]",
       "adminUsername": "[basics('adminUsername')]",
       "adminPassword": "[basics('SSHCredntials').password]",
       "authenticationType": "[basics('SSHCredntials').authenticationType]",
