@@ -158,7 +158,31 @@
             },
             "options": {
                 "hideNone": false,
-		"hideExisting" : false
+		"hideExisting" : true
+            }
+          },
+         { 
+            "name": "UntrustPublicIP",
+            "type": "Microsoft.Network.PublicIpAddressCombo",
+            "label": {
+                "publicIpAddress": "Public IP address",
+                "domainNameLabel": "DNS Name"
+            },
+            "constraints": {
+              "required": {
+                       "domainNameLabel": true
+                     }
+            },
+            "toolTip": {
+                "domainNameLabel": "Unique DNS name prefix for public IP of untrust interface (eth1)"
+            },
+            "defaultValue": {
+                "publicIpAddressName": "fwUntrustPublicIP",
+                "domainNameLabel": ""
+            },
+            "options": {
+                "hideNone": false,
+                "hideExisting" : true
             }
           },
        {
@@ -187,7 +211,9 @@
                 "Standard_D3_v2",
                 "Standard_D4",
                 "Standard_D4_v2",
-                "Standard_A4"                  
+                "Standard_D5_v2",  
+                "Standard_D14_v2",  
+                "Standard_A4"
                 ]
             },
 	    "osPlatform": "Linux",
@@ -206,9 +232,12 @@
       "storageAccountType": "[steps('panvnetconfig').newStorageAccount.type]",
       "storageAccountNewOrExisting" : "[steps('panvnetconfig').newStorageAccount.newOrExisting]",
       "storageAccountExistingRG": "[steps('panvnetconfig').newStorageAccount.resourceGroup]",
-      "publicIPAddressName": "[steps('VMSeriesConfig').dnsNameForPublicIP.domainNameLabel]",
-      "PublicIPNewOrExisting": "[steps('VMSeriesConfig').dnsNameForPublicIP.newOrExistingOrNone]",
-      "PublicIPRGName": "[steps('VMSeriesConfig').dnsNameForPublicIP.resourceGroup]",
+      "MgmtPublicIPAddressName": "[steps('VMSeriesConfig').dnsNameForPublicIP.domainNameLabel]",
+      "MgmtPublicIP": "[steps('VMSeriesConfig').dnsNameForPublicIP.newOrExistingOrNone]",
+      "MgmtPublicIPRGName": "[steps('VMSeriesConfig').dnsNameForPublicIP.resourceGroup]",
+      "UntrustPublicIPAddressName": "[steps('VMSeriesConfig').UntrustPublicIP.domainNameLabel]",
+      "UntrustPublicIP": "[steps('VMSeriesConfig').UntrustPublicIP.newOrExistingOrNone]",
+      "UntrustPublicIPRGName": "[steps('VMSeriesConfig').UntrustPublicIP.resourceGroup]",
       "vmName": "[steps('VMSeriesConfig').vmName]",
       "adminUsername": "[basics('adminUsername')]",
       "adminPassword": "[basics('SSHCredntials').password]",

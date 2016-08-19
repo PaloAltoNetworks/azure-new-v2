@@ -14,8 +14,17 @@
     "vmName": {
       "value": "panwtrailuidef-509"
     },
-    "publicIPAddressName": {
-      "value": "pubpanwtrailuidef-509"
+    "MgmtPublicIP": {
+      "value": "new"
+    },
+    "MgmtPublicIPAddressName": {
+      "value": "samisramgmtpip-509"
+    },
+    "UntrustPublicIP": {
+      "value": "new"
+    },
+    "UntrustPublicIPAddressName": {
+      "value": "samisrauntrustpip-509"
     },
     "vmSize": {
       "value": "Standard_D3"
@@ -26,14 +35,14 @@
     "vnetNewOrExisting": {
       "value": "new"
     },
-    "PublicIPNewOrExistingOrNone": {
-      "value": "new"
-    },
-    "BoostrapUri": {
-      "value": "https://samisravhddata.blob.core.windows.net/data/bootstrap-20.vhd.vhd"
-    },
     "Bootstrap": {
       "value": "yes"
+    },
+    "BootstrapUri": {
+      "value": "https://samisravhddata.blob.core.windows.net/data/bootstrap-20.vhd.vhd"
+    },
+    "BootstrapUriSizeGB": {
+      "value": "20"
     },
     "location": {
       "value": "East US"

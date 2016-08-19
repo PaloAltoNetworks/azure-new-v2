@@ -5,17 +5,53 @@
     "location": {
       "type": "string"
     },
-    "publicIPAddressName": {
+    "MgmtPublicIPAddressName": {
       "type": "string"
     },
-    "publicIPAddressType": {
+    "PublicIPAddressType": {
       "type": "string"
     },
-    "publicIpRGName": {
+    "MgmtPublicIPRGName": {
+      "type": "string"
+    }
+    "UntrustPublicIPAddressName": {
+      "type": "string"
+    },
+    "UntrustPublicIPRGName": {
+      "type": "string"
+    },
+    "baseUrl": {
       "type": "string"
     }
   },
-  "resources": [],
+  "variables": {
+    "SettingUpPublicIPUrl": "[concat(parameters('baseUrl'),'/publicip-untrust-',parameters('UntrustPublicIP'),'.json')]"
+  },
+  "resources": [
+    {
+      "name": "UntrustSettingUpPublicIPs",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2015-01-01",
+      "properties": { 
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('SettingUpPublicIPUrl')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "publicIPAddressType": {
+            "value": "[variables('publicIPAddressType')]"
+          },
+          "UntrustPublicIPRGName" : {
+            "value": "[parameters('UntrustPublicIPRGName')]"
+          }
+        }
+      }
+    }
+  ],
   "outputs": {
   }
 }

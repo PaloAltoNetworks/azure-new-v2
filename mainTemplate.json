@@ -29,6 +29,8 @@
           "Standard_D4",
           "Standard_D3_v2",
           "Standard_D4_v2",
+          "Standard_D5_v2",
+          "Standard_D14_v2", 
           "Standard_A4"
        ],
        "metadata": {
@@ -152,30 +154,54 @@
       },
       "defaultValue": "https://raw.githubusercontent.com/PaloAltoNetworks/azure-new-v2/master/"
     },
-    "PublicIPNewOrExistingOrNone": {
+    "MgmtPublicIP": {
       "type": "string",
       "defaultValue": "new",
       "allowedValues": [
         "new",
-        "existing",
         "none"
       ],
       "metadata": {
         "description": "Public IP for mgmt interface is new or existing"
       }
     },
-    "PublicIPRGName": {
+    "MgmtPublicIPRGName": {
       "type": "string",
       "defaultValue": "",
       "metadata": {
         "description": "Resource Group containing existing public IP"
       }
     },
-    "publicIPAddressName": {
+    "MgmtPublicIPAddressName": {
       "type": "string",
-      "defaultValue": "vm-servies-public-ip-name",
+      "defaultValue": "vm-servies-pib-mgmt",
       "metadata": {
-        "description": "Name of existing public IP resource"
+        "description": "Name of public IP resource for mgmt interface"
+      }
+    },
+    "UntrustPublicIP": {
+      "type": "string",
+      "defaultValue": "new",
+      "allowedValues": [
+        "new",
+        "none"
+      ],
+      "metadata": {
+        "description": "Public IP for untrust interface is new or none"
+      }
+    },
+    "UntrustPublicIPRGName": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Resource Group containing existing public IP"
+      }
+    },
+    "UntrustPublicIPAddressName": {
+      "type": "string",
+      "defaultValue": "vm-servies-pib-untrust",
+      "metadata": {
+        "description": "Name of public IP resource for untrust interface"
       }
     },
     "storageAccountName": {
@@ -225,11 +251,18 @@
         "description": "Bootstrap disk yes or no"
       }
     },
-    "BoostrapUri": {
+    "BootstrapUri": {
       "type": "string",
       "defaultValue" : "",
       "metadata": {
         "description": "Bootstrap disk storage account URI with container name"
+      }
+    },
+    "BootstrapUriSizeGB": {
+      "type": "string",
+      "defaultValue" : "1",
+      "metadata": {
+        "description": "Bootstrap disk disk in GB"
       }
     },
     "authenticationType": {
@@ -289,9 +322,9 @@
     ],
     "storageAccountSetupURL" : "[concat(parameters('baseUrl'),'/storageAccount-',parameters('storageAccountNewOrExisting'),'.json')]",
     "nsgSetupURL" : "[concat(parameters('baseUrl'),'/nsg-new.json')]",
-    "SettingUpPublicIPUrl": "[concat(parameters('baseUrl'),'/publicip-',parameters('PublicIPNewOrExistingOrNone'),'.json')]",
+    "SettingUpPublicIPUrl": "[concat(parameters('baseUrl'),'/publicip-',parameters('MgmtPublicIP'),'.json')]",
     "vnetSetupURL": "[concat(parameters('baseUrl'),'/vnet-', parameters('vnetNewOrExisting'),'.json')]",
-    "setupNICsURL": "[concat(parameters('baseUrl'),'/setupNICS-', parameters('PublicIPNewOrExistingOrNone'),'.json')]",
+    "setupNICsURL": "[concat(parameters('baseUrl'),'/setupNICS-', parameters('MgmtPublicIP'),'.json')]",
     "vmTemplateUrl": "[concat(parameters('baseUrl'), '/virtual-machine-', parameters('authenticationType'),'-bs-', parameters('Bootstrap'), '.json')]"
 
   },
@@ -336,14 +369,23 @@
           "location": {
             "value": "[parameters('location')]"
           },
-          "publicIPAddressName": {
-            "value": "[parameters('publicIPAddressName')]"
+          "MgmtPublicIPAddressName": {
+            "value": "[parameters('MgmtPublicIPAddressName')]"
           },
           "publicIPAddressType": {
             "value": "[variables('publicIPAddressType')]"
           },
-	  "publicIpRGName" : {
-            "value": "[parameters('PublicIPRGName')]"
+	  "MgmtPublicIPRGName" : {
+            "value": "[parameters('MgmtPublicIPRGName')]"
+          },
+	  "UntrustPublicIPRGName" : {
+            "value": "[parameters('UntrustPublicIPRGName')]"
+          },
+          "UntrustPublicIP": {
+            "value": "[parameters('UntrustPublicIP')]"
+          },
+          "baseUrl": {
+            "value": "[parameters('baseUrl')]"
           }
         }
       }
@@ -454,14 +496,14 @@
           "virtualNetworkExistingRGName": {
             "value": "[parameters('virtualNetworkExistingRGName')]"
           },
-          "publicIPAddressName": {
+          "MgmtPublicIPAddressName": {
             "value": "[parameters('publicIPAddressName')]"
           },
-          "PublicIPRGName": {
-            "value": "[parameters('PublicIPRGName')]"
+          "MgmtPublicIPRGName": {
+            "value": "[parameters('MgmtPublicIPRGName')]"
           },
-          "PublicIPNewOrExistingOrNone": {
-            "value": "[parameters('PublicIPNewOrExistingOrNone')]"
+          "MgmtPublicIP": {
+            "value": "[parameters('MgmtPublicIP')]"
           }
         }
       }
@@ -517,8 +559,11 @@
           "sshKey": {
             "value": "[parameters('sshKey')]"
           },
-          "BoostrapUri": {
-            "value": "[parameters('BoostrapUri')]"
+          "BootstrapUri": {
+            "value": "[parameters('BootstrapUri')]"
+          },
+          "BootstrapUriSizeGB": {
+            "value": "[parameters('BootstrapUriSizeGB')]"
           }
         }
       }
