@@ -381,6 +381,9 @@
 	  "UntrustPublicIPRGName": {
             "value": "[parameters('UntrustPublicIPRGName')]"
           },
+	  "UntrustPublicIPAddressName": {
+            "value": "[parameters('UntrustPublicIPAddressName')]"
+          },
           "UntrustPublicIP": {
             "value": "[parameters('UntrustPublicIP')]"
           },
