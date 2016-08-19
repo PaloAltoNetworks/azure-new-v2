@@ -32,13 +32,13 @@
     "virtualNetworkExistingRGName": {
       "type": "string"
     },
-    "publicIPAddressName": {
+    "MgmtPublicIPAddressName": {
       "type": "string"
     },
-    "PublicIPRGName": {
+    "MgmtPublicIPRGName": {
       "type": "string"
     },
-    "PublicIPNewOrExistingOrNone": {
+    "MgmtPublicIP": {
       "type": "string"
     }
   },
@@ -61,7 +61,7 @@
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "publicIPAddress": {
-                 "id": "[resourceId(parameters('PublicIPRGName'),'Microsoft.Network/publicIPAddresses', parameters('publicIPAddressName'))]"
+                 "id": "[resourceId(parameters('MgmtPublicIPRGName'),'Microsoft.Network/publicIPAddresses', parameters('MgmtPublicIPAddressName'))]"
               },
               "subnet": {
                 "id": "[variables('subnet0Ref')]"

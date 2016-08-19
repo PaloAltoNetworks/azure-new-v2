@@ -32,13 +32,13 @@
     "virtualNetworkExistingRGName": {
       "type": "string"
     },
-    "publicIPAddressName": {
+    "MgmtPublicIPAddressName": {
       "type": "string"
     },
-    "PublicIPRGName": {
+    "MgmtPublicIPRGName": {
       "type": "string"
     },
-    "PublicIPNewOrExistingOrNone": {
+    "MgmtPublicIP": {
       "type": "string"
     }
   },
