@@ -20,6 +20,9 @@
     "UntrustPublicIPRGName": {
       "type": "string"
     },
+    "UntrustPublicIP": {
+      "type": "string"
+    },
     "baseUrl": {
       "type": "string"
     }
