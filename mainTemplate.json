@@ -375,10 +375,10 @@
           "publicIPAddressType": {
             "value": "[variables('publicIPAddressType')]"
           },
-	  "MgmtPublicIPRGName" : {
+	  "MgmtPublicIPRGName": {
             "value": "[parameters('MgmtPublicIPRGName')]"
           },
-	  "UntrustPublicIPRGName" : {
+	  "UntrustPublicIPRGName": {
             "value": "[parameters('UntrustPublicIPRGName')]"
           },
           "UntrustPublicIP": {

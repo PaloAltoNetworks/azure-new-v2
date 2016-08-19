@@ -13,7 +13,7 @@
     },
     "MgmtPublicIPRGName": {
       "type": "string"
-    }
+    },
     "UntrustPublicIPAddressName": {
       "type": "string"
     },

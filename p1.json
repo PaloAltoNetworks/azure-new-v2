@@ -1,0 +1,39 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "value": "samisra"
+    },
+    "adminPassword": {
+      "value": "Hello!"
+    },
+    "storageAccountName": {
+      "value": "smwest6storage509"
+    },
+    "vmName": {
+      "value": "panwtrailuidef-509"
+    },
+    "vmSize": {
+      "value": "Standard_D3"
+    },
+    "srcIPInboundNSG": {
+      "value": "199.167.55.50/32"
+    },
+    "vnetNewOrExisting": {
+      "value": "new"
+    },
+    "Bootstrap": {
+      "value": "yes"
+    },
+    "BootstrapUri": {
+      "value": "https://samisravhddata.blob.core.windows.net/data/bootstrap-20.vhd.vhd"
+    },
+    "BootstrapUriSizeGB": {
+      "value": "20"
+    },
+    "location": {
+      "value": "East US"
+    }
+  }
+}
