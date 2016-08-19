@@ -497,7 +497,7 @@
             "value": "[parameters('virtualNetworkExistingRGName')]"
           },
           "MgmtPublicIPAddressName": {
-            "value": "[parameters('publicIPAddressName')]"
+            "value": "[parameters('MgmtPublicIPAddressName')]"
           },
           "MgmtPublicIPRGName": {
             "value": "[parameters('MgmtPublicIPRGName')]"
