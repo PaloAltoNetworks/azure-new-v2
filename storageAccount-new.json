@@ -30,7 +30,8 @@
   },
   "variables": {
     "rgname": "[resourceGroup().id]",
-    "stname": "[concat('storage', variables('rgname'), uniquestring(resourceGroup().id))]"
+    "srname": "[concat('storage', variables('rgname'), uniquestring(resourceGroup().id))]",
+    "stname": "storagesaurabh"
   },
   "resources": [
     {
