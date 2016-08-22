@@ -197,13 +197,6 @@
         "description": "Public IP for untrust interface is new or none"
       }
     },
-    "UntrustPublicIPRGName": {
-      "type": "string",
-      "defaultValue": "",
-      "metadata": {
-        "description": "Resource Group containing existing public IP"
-      }
-    },
     "UntrustPublicIPAddressName": {
       "type": "string",
       "defaultValue": "vm-servies-pib-untrust",
@@ -385,9 +378,6 @@
           },
 	  "MgmtPublicIPRGName": {
             "value": "[parameters('MgmtPublicIPRGName')]"
-          },
-	  "UntrustPublicIPRGName": {
-            "value": "[parameters('UntrustPublicIPRGName')]"
           },
 	  "UntrustPublicIPAddressName": {
             "value": "[parameters('UntrustPublicIPAddressName')]"

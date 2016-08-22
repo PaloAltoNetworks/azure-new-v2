@@ -17,9 +17,6 @@
     "UntrustPublicIPAddressName": {
       "type": "string"
     },
-    "UntrustPublicIPRGName": {
-      "type": "string"
-    },
     "UntrustPublicIP": {
       "type": "string"
     },
