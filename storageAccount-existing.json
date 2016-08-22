@@ -31,8 +31,8 @@
   "resources": [],
   "outputs": {
     "storageAccountId": {
-      "value": "[resourceId(parameters('storageAccountExistingRG'),'Microsoft.Storage/StorageAccounts',parameters('storageAccountName'))]",
-      "type": "string"
+      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
+      "type": "object"
     }
   }
 }

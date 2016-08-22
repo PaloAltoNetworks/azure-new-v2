@@ -28,10 +28,14 @@
       "defaultValue" : ""
     }
   },
+  "variables": {
+    "rgname": "[deployment().name]",
+    "stname": "[concat(variables('rgname'), '-', parameters('storageAccountName'))]"
+  },
   "resources": [
     {
 	"type": "Microsoft.Storage/storageAccounts",
-	"name": "[parameters('storageAccountName')]",
+	"name": "[variables('stname')]",
 	"apiVersion": "2015-06-15",
 	"location": "[parameters('location')]",
 	"properties": {
@@ -41,8 +45,8 @@
   ],
   "outputs": {
     "storageAccountId": {
-      "value": "[resourceId('Microsoft.Storage/StorageAccounts',parameters('storageAccountName'))]",
-      "type": "string"
+      "value": "[reference(concat('Microsoft.Storage/storageAccounts/', variables('stname')),providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]",
+      "type": "object"
     }
   }
 }
