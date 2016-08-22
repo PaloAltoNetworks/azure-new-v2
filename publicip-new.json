@@ -58,7 +58,7 @@
             "value": "[parameters('location')]"
           },
           "publicIPAddressType": {
-            "value": "[variables('publicIPAddressType')]"
+            "value": "[parameters('publicIPAddressType')]"
           },
           "UntrustPublicIPRGName" : {
             "value": "[parameters('UntrustPublicIPRGName')]"
