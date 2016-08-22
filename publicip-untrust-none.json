@@ -5,7 +5,7 @@
     "location": {
       "type": "string"
     },
-    "PublicIPAddressType": {
+    "publicIPAddressType": {
       "type": "string"
     },
     "UntrustPublicIPAddressName": {
