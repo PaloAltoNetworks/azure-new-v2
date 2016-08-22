@@ -286,7 +286,7 @@
     }
   },
   "variables": {
-    "rgname": "[deployment().name]",
+    "rgname": "[resourceGroup().id]",
     "imagePublisher": "paloaltonetworks",
     "imageSku" : "byol",
     "imageOffer" : "vmseries1",

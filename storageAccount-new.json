@@ -29,13 +29,13 @@
     }
   },
   "variables": {
-    "rgname": "[deployment().name]",
+    "rgname": "[resourceGroup().id]",
     "stname": "[concat(variables('rgname'), '-', parameters('storageAccountName'))]"
   },
   "resources": [
     {
 	"type": "Microsoft.Storage/storageAccounts",
-	"name": "[variables('stname')]",
+        "name": "[variables('stname')]",
 	"apiVersion": "2015-06-15",
 	"location": "[parameters('location')]",
 	"properties": {
