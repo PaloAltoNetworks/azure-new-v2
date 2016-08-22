@@ -31,7 +31,8 @@
   "variables": {
     "rgname": "[resourceGroup().id]",
     "srname": "[concat('storage', variables('rgname'), uniquestring(resourceGroup().id))]",
-    "stname": "storagesaurabh"
+    "spname": "storagesaurabh",
+    "stname": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
   },
   "resources": [
     {
