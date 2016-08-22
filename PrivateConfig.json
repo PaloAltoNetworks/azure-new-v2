@@ -1,4 +1,0 @@
-{
-    "storageAccountName" : "the storage account to receive data",
-    "storageAccountKey" : "the key of the account"
-}
