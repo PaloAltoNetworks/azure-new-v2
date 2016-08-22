@@ -286,11 +286,12 @@
     }
   },
   "variables": {
+    "rgname": "[deployment().name]",
     "imagePublisher": "paloaltonetworks",
     "imageSku" : "byol",
     "imageOffer" : "vmseries1",
     "nsgName" : "DefaultNSG",
-    "nicName": "[concat(parameters('vmName'), '-eth')]",
+    "nicName": "[parameters('MgmtPublicIPAddressName')]",
     "FWPrivateIPAddressUntrust": "[parameters('subnet1StartAddress')]",
     "FWPrivateIPAddressTrust": "[parameters('subnet2StartAddress')]",
     "vnetID": "[resourceId(parameters('virtualNetworkExistingRGName'),concat('Microsoft.Network','/','virtualNetworks'),parameters('virtualNetworkName'))]",
@@ -505,6 +506,12 @@
           },
           "MgmtPublicIP": {
             "value": "[parameters('MgmtPublicIP')]"
+          },
+          "UntrustPublicIPAddressName": {
+            "value": "[parameters('UntrustPublicIPAddressName')]"
+          },
+          "UntrustPublicIP": {
+            "value": "[parameters('UntrustPublicIP')]"
           }
         }
       }

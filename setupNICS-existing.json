@@ -40,6 +40,12 @@
     },
     "MgmtPublicIP": {
       "type": "string"
+    },
+    "UntrustPublicIPAddressName": {
+      "type": "string"
+    },
+    "UntrustPublicIP": {
+      "type": "string"
     }
   },
   "variables": {
@@ -50,7 +56,7 @@
   },
   "resources": [
     {
-      "name": "[concat(parameters('nicName'), '0')]",
+      "name": "[concat('eth0-', parameters('nicName'))]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[parameters('location')]",
       "apiVersion": "2015-06-15",
@@ -61,7 +67,7 @@
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "publicIPAddress": {
-                 "id": "[resourceId(parameters('MgmtPublicIPRGName'),'Microsoft.Network/publicIPAddresses', parameters('MgmtPublicIPAddressName'))]"
+                 "id": "[resourceId(parameters('MgmtPublicIPRGName'),'Microsoft.Network/publicIPAddresses', 'mgmtIP-', parameters('MgmtPublicIPAddressName'))]"
               },
               "subnet": {
                 "id": "[variables('subnet0Ref')]"
@@ -72,7 +78,7 @@
       }
     },
     {
-      "name": "[concat(parameters('nicName'), '1')]",
+      "name": "[concat('eth1-', parameters('nicName'))]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[parameters('location')]",
       "apiVersion": "2015-06-15",
@@ -92,7 +98,7 @@
       }
     },
     {
-      "name": "[concat(parameters('nicName'), '2')]",
+      "name": "[concat('eth2-', parameters('nicName'))]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[parameters('location')]",
       "apiVersion": "2015-06-15",
