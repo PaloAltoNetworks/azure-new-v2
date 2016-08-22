@@ -48,8 +48,8 @@
           "publicIPAddressType": {
             "value": "[parameters('publicIPAddressType')]"
           },
-          "UntrustPublicIPRGName" : {
-            "value": "[parameters('UntrustPublicIPRGName')]"
+          "UntrustPublicIPAddressName" : {
+            "value": "[parameters('UntrustPublicIPAddressName')]"
           }
         }
       }
