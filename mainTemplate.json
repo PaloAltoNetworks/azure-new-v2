@@ -188,7 +188,7 @@
     },
     "UntrustPublicIP": {
       "type": "string",
-      "defaultValue": "new",
+      "defaultValue": "none",
       "allowedValues": [
         "new",
         "none"
@@ -290,8 +290,8 @@
     "imagePublisher": "paloaltonetworks",
     "imageSku" : "byol",
     "imageOffer" : "vmseries1",
-    "nsgName" : "DefaultNSG",
-    "nicName": "[parameters('MgmtPublicIPAddressName')]",
+    "nsgName" : "[concat(variables('rgname'), '-NSG')]",
+    "nicName": "[parameters('vmName')]",
     "FWPrivateIPAddressUntrust": "[parameters('subnet1StartAddress')]",
     "FWPrivateIPAddressTrust": "[parameters('subnet2StartAddress')]",
     "vnetID": "[resourceId(parameters('virtualNetworkExistingRGName'),concat('Microsoft.Network','/','virtualNetworks'),parameters('virtualNetworkName'))]",

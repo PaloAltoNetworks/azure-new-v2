@@ -9,22 +9,22 @@
       "value": "Hello!"
     },
     "storageAccountName": {
-      "value": "smwest6storage509"
+      "value": "storage510"
     },
     "vmName": {
-      "value": "panwtrailuidef-509"
+      "value": "vmname-510"
     },
     "MgmtPublicIP": {
       "value": "new"
     },
     "MgmtPublicIPAddressName": {
-      "value": "samisramgmtpip-509"
+      "value": "mgmtpublicip-510"
     },
     "UntrustPublicIP": {
       "value": "new"
     },
     "UntrustPublicIPAddressName": {
-      "value": "samisrauntrustpip-509"
+      "value": "untrustpip-510"
     },
     "vmSize": {
       "value": "Standard_D3"

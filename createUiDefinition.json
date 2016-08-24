@@ -233,8 +233,27 @@
               "offer": "vmseries1",
               "sku": "byol"
             }
+          },
+        {
+        "name": "AvailabilitySets",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Number of Availablity Sets",
+        "defaultValue": "0",
+        "toolTip": "Enter the number of Availability Sets",
+        "constraints": {
+          "allowedValues": [{
+            "label": "0",
+            "value": 0
+          }, {
+            "label": "2",
+            "value": 2
+          }, {
+            "label": "3",
+            "value": 3
           }
-        ]
+          ]
+        }
+       }
       }
     ],
     "outputs": {
