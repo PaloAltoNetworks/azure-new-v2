@@ -12,11 +12,14 @@
       "type": "string"
     }
   },
+  "variables": {
+     "untrust": "[concat('untrustIP-', parameters('UntrustPublicIPAddressName'))]"
+  }
   "resources": [
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/publicIPAddresses",
-      "name": "[concat('untrustIP-', parameters('UntrustPublicIPAddressName'))]",
+      "name": "[variables('untrust')]",
       "location": "[parameters('location')]",
       "properties": {
         "publicIPAllocationMethod": "[parameters('publicIPAddressType')]",
@@ -28,11 +31,11 @@
   ],
   "outputs": {
     "publicIpId": {
-      "value": "[resourceId(concat('Microsoft.Network','/','publicIPAddresses'),parameters('UntrustPublicIPAddressName'))]",
+      "value": "[resourceId(concat('Microsoft.Network','/','publicIPAddresses'),variables('untrust'))]",
       "type": "string"
     },
     "fqdn": {
-      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',parameters('UntrustPublicIPAddressName')),providers('Microsoft.Network', 'publicIPAddresses').apiVersions[0]).dnsSettings.fqdn]",
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses',variables('untrust')),providers('Microsoft.Network', 'publicIPAddresses').apiVersions[0]).dnsSettings.fqdn]",
       "type": "string"
     }
   }

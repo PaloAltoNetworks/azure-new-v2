@@ -18,13 +18,13 @@
       "value": "new"
     },
     "MgmtPublicIPAddressName": {
-      "value": "mgmtpublicip-510"
+      "value": "dnsNameMgmt-510"
     },
     "UntrustPublicIP": {
       "value": "new"
     },
     "UntrustPublicIPAddressName": {
-      "value": "untrustpip-510"
+      "value": "dnsNameUntrust-510"
     },
     "vmSize": {
       "value": "Standard_D3"
