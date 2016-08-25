@@ -48,15 +48,11 @@
                "type": "Microsoft.Storage.StorageAccountSelector",
                "label": "Storage Account Name",
                "defaultValue": {
-                   "type": "Premium_LRS"
+                   "type": "Standard_LRS"
                },
                "constraints": {
                    "allowedTypes": ["Standard_LRS","Standard_GRS","Standard_RAGRS","Premium_LRS"]
-               },
-               "options": {
-                   "hideExisting": false
-               },
-               "visible": true
+               }
             },
 	    {
 	       "name": "vnetSpec",
@@ -146,7 +142,7 @@
             "type": "Microsoft.Network.PublicIpAddressCombo",
             "label": {
                 "publicIpAddress": "Public IP address",
-                "domainNameLabel": "Managment interface DNS Name"
+                "domainNameLabel": "DNS Name"
             },
             "constraints": {
               "required": {
@@ -162,17 +158,15 @@
             },
             "options": {
                 "hideNone": false,
-                "hideDomainNameLabel": false,
-		"hideExisting" : false
-            },
-            "visible": true
+		"hideExisting" : true
+            }
           },
          { 
-            "name": "UntrustdnsNameForPublicIP",
+            "name": "UntrustPublicIP",
             "type": "Microsoft.Network.PublicIpAddressCombo",
             "label": {
-                "publicIpAddress": "Untrust Public IP address",
-                "domainNameLabel": "Untrust interface DNS Name"
+                "publicIpAddress": "Public IP address",
+                "domainNameLabel": "DNS Name"
             },
             "constraints": {
               "required": {
@@ -180,7 +174,7 @@
                      }
             },
             "toolTip": {
-                "domainNameLabel": "Unique DNS name prefix for public IP of Untrust interface (eth1)"
+                "domainNameLabel": "Unique DNS name prefix for public IP of untrust interface (eth1)"
             },
             "defaultValue": {
                 "publicIpAddressName": "fwUntrustPublicIP",
@@ -188,16 +182,25 @@
             },
             "options": {
                 "hideNone": false,
-                "hideDomainNameLabel": false,
-                "hideExisting" : false
-            },
-            "visible": true
+                "hideExisting" : true
+            }
           },
        {
         "name": "vmName",
         "type": "Microsoft.Common.TextBox",
         "label": "VM name of VM-Series",
         "toolTip": "VM name and hostname in resource group after deployment",
+        "constraints": {
+            "required": true,
+            "regex": "^[a-z0-9]{8,24}$",
+            "validationMessage": "VM names must be between 8 and 24 characters long, and can contain only numbers and lowercase letters."
+         }
+       },
+       {
+        "name": "Email",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Customers Email-ID",
+        "toolTip": "Customers Email-ID",
         "constraints": {
             "required": true,
             "regex": "^[a-z0-9]{8,24}$",
@@ -219,7 +222,6 @@
                 "Standard_D3_v2",
                 "Standard_D4",
                 "Standard_D4_v2",
-                "Standard_A4",
                 "Standard_D5_v2",  
                 "Standard_D14_v2",  
                 "Standard_A4"
@@ -231,75 +233,6 @@
               "offer": "vmseries1",
               "sku": "byol"
             }
-          },
-          {
-            "name": "Email",
-            "type": "Microsoft.Common.TextBox",
-            "label": "Customer Email-ID",
-            "toolTip": "Customer Email-ID",
-            "defaultValue": "abc@paloaltonetworks.com",
-            "constraints": {
-               "required": false,
-               "validationMessage": "Email-ID must be in the form name@domain"
-            },
-            "visible": true
-          }
-        ]
-      },
-      {
-        "name": "EnableAS",
-        "label": "Availability Set configuration for VM-Series",
-        "subLabel": {
-          "preValidation": "",
-          "postValidation": "Done"
-        },
-        "bladeTitle": "Availability Set configuration for VM-Series",
-        "elements": [
-         {
-            "name": "EnableASYesOrNo",
-            "type": "Microsoft.Common.DropDown",
-            "label": "Enable Availability Sets?",
-            "defaultValue": "No",
-            "toolTip": "",
-            "constraints": {
-              "allowedValues": [
-               {
-                 "label": "Yes",
-                 "value": "Yes"
-               },
-               {
-                 "label": "No",
-                 "value": "No"
-               }
-             ]
-            },
-            "visible": true
-          },
-          {
-            "name": "ASFaultDomains",
-            "type": "Microsoft.Common.TextBox",
-            "label": "Number of Fault domains in the Availability Set",
-            "toolTip": "Number of Fault domains in the Availability Set",
-            "defaultValue": "3",
-            "constraints": {
-               "required": true,
-               "regex": "^[1-3]",
-               "validationMessage": "Number of Fault domains must be between 1 to 3"
-            },
-            "visible": true
-          },
-          {
-            "name": "ASUpdateDomains",
-            "type": "Microsoft.Common.TextBox",
-            "label": "Number of Update domains in the Availability Set",
-            "toolTip": "Number of Update domains in the Availability Set",
-            "defaultValue": "05",
-            "constraints": {
-               "required": true,
-               "regex": "^[1-20]",
-               "validationMessage": "Number of Update domains must be between 1 to 19"
-            },
-            "visible": true
           }
         ]
       }
@@ -313,10 +246,11 @@
       "MgmtPublicIPAddressName": "[steps('VMSeriesConfig').dnsNameForPublicIP.domainNameLabel]",
       "MgmtPublicIP": "[steps('VMSeriesConfig').dnsNameForPublicIP.newOrExistingOrNone]",
       "MgmtPublicIPRGName": "[steps('VMSeriesConfig').dnsNameForPublicIP.resourceGroup]",
-      "UntrustPublicIPAddressName": "[steps('VMSeriesConfig').UntrustdnsNameForPublicIP.domainNameLabel]",
-      "UntrustPublicIP": "[steps('VMSeriesConfig').UntrustdnsNameForPublicIP.newOrExistingOrNone]",
-      "UntrustPublicIPRGName": "[steps('VMSeriesConfig').UntrustdnsNameForPublicIP.resourceGroup]",
+      "UntrustPublicIPAddressName": "[steps('VMSeriesConfig').UntrustPublicIP.domainNameLabel]",
+      "UntrustPublicIP": "[steps('VMSeriesConfig').UntrustPublicIP.newOrExistingOrNone]",
+      "UntrustPublicIPRGName": "[steps('VMSeriesConfig').UntrustPublicIP.resourceGroup]",
       "vmName": "[steps('VMSeriesConfig').vmName]",
+      "Email": "[steps('VMSeriesConfig').Email]",
       "adminUsername": "[basics('adminUsername')]",
       "adminPassword": "[basics('SSHCredntials').password]",
       "authenticationType": "[basics('SSHCredntials').authenticationType]",
@@ -335,8 +269,7 @@
       "subnet2Prefix": "[steps('panvnetconfig').vnetSpec.subnets.subnet2.addressPrefix]",
       "subnet0StartAddress": "[steps('panvnetconfig').vnetSpec.subnets.subnet0.startAddress]",
       "subnet1StartAddress": "[steps('panvnetconfig').vnetSpec.subnets.subnet1.startAddress]",
-      "subnet2StartAddress": "[steps('panvnetconfig').vnetSpec.subnets.subnet2.startAddress]",
-      "Email": "[steps('VMSeriesConfig').Email]"
+      "subnet2StartAddress": "[steps('panvnetconfig').vnetSpec.subnets.subnet2.startAddress]"
     }
   }
 }

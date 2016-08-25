@@ -291,6 +291,8 @@
     "imageSku" : "byol",
     "imageOffer" : "vmseries1",
     "nsgName" : "[concat(variables('rgname'), '-NSG')]",
+    "nsgName" : "vmseries-NSG",
+    "nsgName" : "[concat('vmseries-NSG-', uniqueString(resourceGroup().id))]",
     "nicName": "[parameters('vmName')]",
     "FWPrivateIPAddressUntrust": "[parameters('subnet1StartAddress')]",
     "FWPrivateIPAddressTrust": "[parameters('subnet2StartAddress')]",

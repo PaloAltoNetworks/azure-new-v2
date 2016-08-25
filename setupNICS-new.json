@@ -53,7 +53,7 @@
       "subnet0Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet0Name'))]",
       "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet1Name'))]",
       "subnet2Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet2Name'))]",
-      "mgmtpip": [concat('mgmtIP-', parameters('MgmtPublicIPAddressName'))]"
+      "mgmtpip": "[concat('mgmtIP-', parameters('MgmtPublicIPAddressName'))]"
   },
   "resources": [
     {
