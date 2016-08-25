@@ -25,7 +25,7 @@
     }
   },
   "variables": {
-    "SettingUpPublicIPUrl": "[concat(parameters('baseUrl'),'/publicip-untrust-',parameters('UntrustPublicIP'),'.json')]"
+    "SettingUpPublicIPUrl": "[concat(parameters('baseUrl'),'/publicip-untrust-',parameters('UntrustPublicIP'),'.json')]",
     "mgmt": "[concat('mgmtIP-', parameters('MgmtPublicIPAddressName'))]"
   },
   "resources": [
