@@ -14,7 +14,7 @@
   },
   "variables": {
      "untrust": "[concat('untrustIP-', parameters('UntrustPublicIPAddressName'))]"
-  }
+  },
   "resources": [
     {
       "apiVersion": "2015-06-15",
