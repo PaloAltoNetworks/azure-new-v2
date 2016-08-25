@@ -21,9 +21,13 @@
       "type": "string"
     }
   },
+  "variables": {
+    "rgname": "[resourceGroup().id]",
+    "vnetname": "[concat(variables('rgname'),'-',parameters('virtualNetworkName'))]"
+  },
   "resources": [
     {
-      "name": "[parameters('virtualNetworkName')]",
+      "name": "[variables('vnetname')]",
       "type": "Microsoft.Network/virtualNetworks",
       "location": "[parameters('location')]",
       "apiVersion": "2015-06-15",
@@ -36,5 +40,11 @@
         "subnets": "[parameters('subnets')]"
       }
     }
-  ]
+  ],
+  "outputs": {
+    "vid": {
+      "value": "[resourceId('Microsoft.Network/virtualNetworks',variables('vnetname'))]",
+      "type": "string"
+    }
+  }
 }

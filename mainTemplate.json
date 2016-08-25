@@ -495,7 +495,7 @@
             "value": "[parameters('subnet2StartAddress')]"
           },
           "virtualNetworkName": {
-            "value": "[parameters('virtualNetworkName')]"
+            "value": "[reference('SettingUpVirtualNetwork').outputs.vid.value]"
           },
           "virtualNetworkExistingRGName": {
             "value": "[parameters('virtualNetworkExistingRGName')]"
@@ -564,7 +564,7 @@
             "value": "[parameters('adminPassword')]"
           },
           "storageAccountName": {
-            "value": "[reference('SettingUpStorageAccount').outputs.sid.type]"
+            "value": "[reference('SettingUpStorageAccount').outputs.sid.value]"
           },
           "sshKey": {
             "value": "[parameters('sshKey')]"
