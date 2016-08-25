@@ -564,7 +564,7 @@
             "value": "[parameters('adminPassword')]"
           },
           "storageAccountName": {
-            "value": "[reference('SettingUpStorageAccount').outputs.sid.value]"
+            "value": "[reference('SettingUpStorageAccount').outputs.sid.type]"
           },
           "sshKey": {
             "value": "[parameters('sshKey')]"

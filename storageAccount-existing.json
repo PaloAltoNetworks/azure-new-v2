@@ -32,7 +32,7 @@
   "outputs": {
     "sid": {
       "value": "[resourceId(parameters('storageAccountExistingRG'),'Microsoft.Storage/StorageAccounts',parameters('storageAccountName'))]",
-      "type": "object"
+      "type": "string"
     }
   }
 }
