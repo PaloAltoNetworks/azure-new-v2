@@ -31,8 +31,8 @@
   "resources": [],
   "outputs": {
     "storageAccountId": {
-      "value": "[resourceId(parameters('storageAccountExistingRG'),'Microsoft.Storage/StorageAccounts',parameters('storageAccountName'))]",
-      "type": "object"
+      "type": "string",
+      "value": "[resourceId(parameters('storageAccountExistingRG'),'Microsoft.Storage/StorageAccounts',parameters('storageAccountName'))]"
     }
   }
 }
