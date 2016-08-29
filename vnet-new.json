@@ -23,8 +23,7 @@
   },
   "variables": {
     "rgname": "[resourceGroup().id]",
-    "rgname": "vnet",
-    "vnetname": "[concat(variables('rgname'),'-',parameters('virtualNetworkName'))]"
+    "vnetname": "[concat(variables('rgname'),parameters('virtualNetworkName'))]"
   },
   "resources": [
     {
