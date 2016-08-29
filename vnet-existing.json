@@ -27,7 +27,7 @@
   "resources": [],
   "outputs": {
     "vid": {
-      "value": "[resourceId(parameters('virtualNetworkExistingRGName'),'Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
+      "value": "[parameters('virtualNetworkName')]",
       "type": "string"
     }
   }
