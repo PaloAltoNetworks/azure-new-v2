@@ -47,7 +47,7 @@
   ],
   "outputs": {
     "sid": {
-      "value": "[resourceId('Microsoft.Storage/StorageAccounts',variables('stname'))]",
+      "value": "[variables('stname')]",
       "type": "string"
     }
   }
