@@ -9,22 +9,22 @@
       "value": "Hello!"
     },
     "storageAccountName": {
-      "value": "storage512"
+      "value": "storage513"
     },
     "vmName": {
-      "value": "vmname-512"
+      "value": "vmname-513"
     },
     "MgmtPublicIP": {
       "value": "new"
     },
     "MgmtPublicIPAddressName": {
-      "value": "dnsnamemgmt512"
+      "value": "dnsnamemgmt513"
     },
     "UntrustPublicIP": {
       "value": "new"
     },
     "UntrustPublicIPAddressName": {
-      "value": "dnsnameuntrust512"
+      "value": "dnsnameuntrust513"
     },
     "vmSize": {
       "value": "Standard_D3"
@@ -46,6 +46,12 @@
     },
     "location": {
       "value": "East US"
+    },
+    "existingdiagnosticsStorageAccountName": {
+      "value": "samisrametrics"
+    },
+    "existingdiagnosticsStorageResourceGroup": {
+      "value": "samisrametricsrg"
     }
   }
 }

@@ -283,7 +283,19 @@
             "metadata": {
                 "description": "SSH rsa public key file as a string."
             }
-    }
+    },
+      "existingdiagnosticsStorageAccountName": {
+          "type": "string",
+          "metadata": {
+        "description": "The name of an existing storage account to which diagnostics data will be transfered."
+      }
+      },
+      "existingdiagnosticsStorageResourceGroup": {
+          "type": "string",
+          "metadata": {
+        "description": "The resource group for the storage account specified in existingdiagnosticsStorageAccountName"
+      }
+      }
   },
   "variables": {
     "rgname": "[resourceGroup().id]",
@@ -574,6 +586,12 @@
           },
           "BootstrapUriSizeGB": {
             "value": "[parameters('BootstrapUriSizeGB')]"
+          },
+          "existingdiagnosticsStorageAccountName": {
+            "value": "[parameters('existingdiagnosticsStorageAccountName')]"
+          },
+          "existingdiagnosticsStorageResourceGroup": {
+            "value": "[parameters('existingdiagnosticsStorageResourceGroup')]"
           }
         }
       }
