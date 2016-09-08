@@ -9,22 +9,22 @@
       "value": "Hello!"
     },
     "storageAccountName": {
-      "value": "storage513"
+      "value": "storage515"
     },
     "vmName": {
-      "value": "vmname-513"
+      "value": "vmname-515"
     },
     "MgmtPublicIP": {
       "value": "new"
     },
     "MgmtPublicIPAddressName": {
-      "value": "dnsnamemgmt513"
+      "value": "dnsnamemgmt515"
     },
     "UntrustPublicIP": {
       "value": "new"
     },
     "UntrustPublicIPAddressName": {
-      "value": "dnsnameuntrust513"
+      "value": "dnsnameuntrust515"
     },
     "vmSize": {
       "value": "Standard_D3"
