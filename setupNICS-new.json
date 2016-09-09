@@ -53,7 +53,8 @@
       "subnet0Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet0Name'))]",
       "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet1Name'))]",
       "subnet2Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet2Name'))]",
-      "mgmtpip": "[concat('mgmtIP-', parameters('MgmtPublicIPAddressName'))]"
+      "mgmtpip": "[concat('mgmtIP-', parameters('MgmtPublicIPAddressName'))]",
+      "setupUntrustNICURL": "[concat(parameters('baseUrl'),'/setupNICS-untrust', parameters('UntrustPublicIP'),'.json')]"
   },
   "resources": [
     {
@@ -79,23 +80,41 @@
       }
     },
     {
-      "name": "[concat('eth1-', parameters('nicName'))]",
-      "type": "Microsoft.Network/networkInterfaces",
-      "location": "[parameters('location')]",
-      "apiVersion": "2015-06-15",
+      "name": "SetupNetworkInterfaceUntrust",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2015-01-01",
       "properties": {
-      "enableIPForwarding": true,
-        "ipConfigurations": [
-          {
-            "name": "ipconfig-untrust",
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "subnet": {
-                "id": "[variables('subnet1Ref')]"
-              }
-            }
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('setupUntrustNICURL')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "nicName": {
+            "value": "[parameters('nicName')]"
+          },
+          "subnet1Name": {
+            "value": "[parameters('subnet1Name')]"
+          },
+          "subnet1StartAddress": {
+            "value": "[parameters('subnet1StartAddress')]"
+          },
+          "virtualNetworkName": {
+            "value": "[parameters('virtualNetworkName')]"
+          },
+          "virtualNetworkExistingRGName": {
+            "value": "[parameters('virtualNetworkExistingRGName')]"
+          },
+          "UntrustPublicIPAddressName": {
+            "value": "[parameters('UntrustPublicIPAddressName')]"
+          },
+          "UntrustPublicIP": {
+            "value": "[parameters('UntrustPublicIP')]"
           }
-        ]
+        }
       }
     },
     {
