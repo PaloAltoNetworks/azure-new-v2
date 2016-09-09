@@ -521,6 +521,9 @@
           },
           "UntrustPublicIP": {
             "value": "[parameters('UntrustPublicIP')]"
+          },
+          "baseUrl": {
+            "value": "[parameters('baseUrl')]"
           }
         }
       }
