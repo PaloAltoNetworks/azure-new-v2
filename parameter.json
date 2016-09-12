@@ -9,22 +9,22 @@
       "value": "Hello!"
     },
     "storageAccountName": {
-      "value": "storage518"
+      "value": "storage519"
     },
     "vmName": {
-      "value": "vmname-518"
+      "value": "vmname-519"
     },
     "MgmtPublicIP": {
-      "value": "none"
-    },
-    "MgmtPublicIPAddressName": {
-      "value": "dnsnamemgmt518"
-    },
-    "UntrustPublicIP": {
       "value": "new"
     },
+    "MgmtPublicIPAddressName": {
+      "value": "dnsnamemgmt519"
+    },
+    "UntrustPublicIP": {
+      "value": "none"
+    },
     "UntrustPublicIPAddressName": {
-      "value": "dnsnameuntrust518"
+      "value": "dnsnameuntrust519"
     },
     "vmSize": {
       "value": "Standard_D3"
@@ -36,10 +36,10 @@
       "value": "new"
     },
     "virtualNetworkExistingRGName": {
-      "value": "smeast15"
+      "value": "[resourceGroup().id]"
     },
     "Bootstrap": {
-      "value": "no"
+      "value": "yes"
     },
     "BootstrapUri": {
       "value": "https://samisravhddata.blob.core.windows.net/data/bootstrap-20.vhd.vhd"

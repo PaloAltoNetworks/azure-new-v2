@@ -74,7 +74,7 @@
       "type": "string",
       "defaultValue": "",
       "metadata": {
-        "description": "Name of resource group of existing VNET (if applicable)"
+        "description": "Name of resource group of VNET (new or existing)"
       }
     },
     "subnet0Name": {
