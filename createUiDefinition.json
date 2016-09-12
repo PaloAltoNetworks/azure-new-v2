@@ -77,7 +77,7 @@
                    "addressPrefixSize": "/16"
                },
                "constraints": {
-                   "minAddressPrefixSize": "/24"
+                   "minAddressPrefixSize": "/29"
                },
                "subnets": {
                    "subnet0": {
